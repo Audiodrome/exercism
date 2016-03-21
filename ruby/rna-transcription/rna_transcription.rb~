@@ -1,0 +1,13 @@
+class Complement
+  VERSION = 1
+
+  toRNA = { 'G' => 'C', 'C' => 'G', 'T' => 'A', 'A' => 'U' }
+  toDNA = { 'G' => 'C', 'C' => 'G', 'U' => 'A', 'A' => 'T' }
+
+  def self.of_dna(arg)
+    puts arg
+    return 'G'
+  end
+
+end
+

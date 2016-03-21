@@ -1,0 +1,16 @@
+class HelloWorld
+
+  def self.hello
+    return "Hello, World!"
+  end
+
+  def self.hello(arg)
+    return "Hello, #{arg}!"
+  end
+
+end
+
+#HelloWorld.hello
+HelloWorld.hello('')
+HelloWorld.hello('Alice')
+HelloWorld.hello('Bob')

@@ -1,0 +1,118 @@
+// function double_helix(strand)
+// {
+//     //console.log(dna.split('').map(rna_swap));
+//     console.log('what is strand', strand);
+//     var is_dna = /^[ACGT]+/,
+//         is_rna = /^[ACGU]+/;
+//     // console.log('am i here', is_dna.test(strand));
+//     // console.log('what about here', is_rna.test(strand));
+    
+//     if (is_dna.test(strand)) {
+//         strand = strand.split('').map(dna_to_rna).join().replace(/,/g, '');
+//         console.log('RNA: ', strand);
+//         return strand;
+//     } 
+//     if (is_rna.test(strand)) {
+//         strand = strand.split('').map(rna_to_dna).join().replace(/,/g, '');
+//         console.log('DNA: ', strand);
+//         return strand;
+//     }
+//     else
+//         console.log('No no no.');
+    
+//     return 0;
+// }
+
+function helix_DNA(strand)
+{
+    var is_dna = /^[ACGT]+/;
+
+    if (is_dna.test(strand)) {
+        strand = strand.split('').map(dna_to_rna).join().replace(/,/g, '');
+        console.log('RNA: ', strand);
+        return strand;
+    }
+    return false;
+}
+
+function helix_RNA(strand)
+{
+    var is_rna = /^[ACGU]+/;
+
+    if (is_rna.test(strand)) {
+        strand = strand.split('').map(rna_to_dna).join().replace(/,/g, '');
+        console.log('RNA: ', strand);
+        return strand;
+    }
+    return false;
+}
+
+function rna_to_dna(strand)
+{
+    var base = {'C': 'G', 'G': 'C', 'A': 'T', 'U': 'A'};
+    return base[strand];
+}
+
+function dna_to_rna(strand)
+{
+    var base = {'C': 'G', 'G': 'C', 'A': 'U', 'T': 'A'};
+    return base[strand];
+}
+
+// function bin_srch(arr, key)
+// {
+//     var lo = 0,
+//         hi = arr.length - 1,
+//         mid,
+//         element;
+
+//     while (lo <= hi) {
+//         mid = ((lo + hi) >> 1); //bitwise shift
+//         element = arr[mid];
+
+//         if (element < key) {
+//             lo = mid + 1;
+//         } else if (element > key) {
+//             hi = mid - 1;
+//         } else {
+//             //return arr[mid];
+//             return true;
+//         }
+//     }
+//     //return -1;
+//     return false;
+// }
+
+// var check_strand = function (strand)
+// {
+//     strand = strand.split('').sort();
+
+//     var U = bin_srch(strand, 'U');
+
+//     console.log('What is U: ', U);
+
+//     if (U === true)
+//         //console.log('Ribonucleic Acid');
+//         return true;
+//     else
+//         //console.log('Deoxyribonucleic acid');
+//         return false;
+//     //check for U, do binary search.
+//     //true is rna, false otherwise.
+// }
+
+var DnaTranscriber = function() {
+
+    //var base = {'C': 'G', 'G': 'C', 'A': 'U', 'T': 'A'};
+    //console.log(base.C);
+    
+    this.toRna = helix_DNA;
+    this.toDna = helix_RNA;
+};
+
+module.exports = DnaTranscriber;
+
+// var dnaz = new DnaTranscriber();
+
+// dnaz.toRna('U');
+

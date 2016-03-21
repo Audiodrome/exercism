@@ -1,0 +1,11 @@
+class Gigasecond
+  VERSION = 1
+  
+  def Gigasecond.from('a')
+  
+  end  
+end
+
+gs = Gigasecond.new
+
+gs.from

@@ -1,0 +1,30 @@
+var DnaTranscriber = function() {};
+
+DnaTranscriber = function(dna) {
+
+    console.log(dna);
+    
+    var rna, i;
+    while (i < dna.length) {
+	switch (dna[i]) {
+	case 'A':
+	    rna.push('U');
+	    break;
+	case 'C':
+	    rna.push('G');
+	    break;
+	case 'G':
+	    rna.push('C');
+	    break;
+	case 'T':
+	    rna.push('A');
+	    break;
+	default:
+	    console.log('Derp derp, derpity derp');
+	}
+	i++;
+    }
+    return rna;
+};
+
+module.exports = DnaTranscriber;
