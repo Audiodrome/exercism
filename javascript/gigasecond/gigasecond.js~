@@ -1,0 +1,15 @@
+var Gigasecond = function() {}
+
+Gigasecond.prototype.date = function(input){
+    return input;
+}
+
+
+gs = new Gigasecond();
+
+
+
+console.log(gs.date);
+
+
+module.exports = Gigasecond;
