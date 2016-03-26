@@ -1,0 +1,7 @@
+var Words = function(){
+    this.count = function (){};
+
+};
+
+
+module.exports = Words;

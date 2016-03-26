@@ -1,0 +1,26 @@
+var Words = function(){
+    this.count = function (input){
+        var word_arr = input.trim().split(/\s/),
+            word_ht = {},
+            length = word_arr.length;
+        console.log(word_arr);
+        
+        for (var i = 0; i < length; i++){
+            word_ht[word_arr[i]] = 0;
+            //console.log(word_ht);
+        }
+        
+        for (var i = 0; i < length; i++){
+            word_ht[word_arr[i]] = 1 + word_ht[word_arr[i]]
+        }
+        console.log(word_ht);
+        return word_ht;
+    };   
+};
+
+var words = new Words();
+
+words.count('\t\tIntroductory Course        ');
+// words.count('reserved words like prototype and toString ok?');
+
+module.exports = Words;
