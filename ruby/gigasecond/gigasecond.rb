@@ -5,8 +5,3 @@ class Gigasecond
     time + G_second
   end  
 end
-
-
-
-
-
