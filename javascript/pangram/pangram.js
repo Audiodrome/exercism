@@ -20,17 +20,17 @@ var Pangram = function (stream){
 
 Array.prototype.unique = function()
 {
-	  var n = {}, r = [];
+    var n = {}, r = [];
     console.log(this);
-	  for(var i = 0; i < this.length; i++) 
-	  { 
-		    if (!n[this[i]]) 
-		    {
-			      n[this[i]] = true; 
-			      r.push(this[i]); 
-		    }
-	  }
-	  return r;
+    for(var i = 0; i < this.length; i++) 
+    { 
+        if (!n[this[i]]) 
+        {
+            n[this[i]] = true; 
+            r.push(this[i]); 
+        }
+    }
+    return r;
 }
 
 module.exports = Pangram;
