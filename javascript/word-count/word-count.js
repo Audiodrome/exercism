@@ -7,7 +7,6 @@ var Words = function(){
         word_arr.forEach(function(word){
             word_ht.hasOwnProperty(word) ? word_ht[word] += 1 : word_ht[word] = 1;
         });
-        
         console.log(word_ht);
         return word_ht;
     };
