@@ -112,7 +112,7 @@ var DnaTranscriber = function() {
 
 module.exports = DnaTranscriber;
 
-// var dnaz = new DnaTranscriber();
+//var dnaz = new DnaTranscriber();
 
-// dnaz.toRna('U');
+//dnaz.toRna('U');
 
