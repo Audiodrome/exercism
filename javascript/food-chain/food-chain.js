@@ -10,15 +10,17 @@ function Verse()
   var animal = [ '', 'fly', 'spider', 'bird', 'cat', 'dog', 'goat', 'cow' ],
       song = "";
 
-  
+  if (arguments[0] == 8) {
+    return PrintEighthLine();
+  } else {
+    song = song.concat(PrintFirstLine(verse_num, animal));
+    song = song.concat(PrintSecondLine(verse_num));
+    song = song.concat(PrintLoop(verse_num, animal));
+    song = song.concat(PrintSeventhLine());
+    console.log(song);
+    return song;
+  }
 
-  song = song.concat(PrintFirstLine(verse_num, animal));
-  song = song.concat(PrintSecondLine(verse_num));
-  song = song.concat(PrintLoop(verse_num, animal));
-  song = song.concat(PrintLastLine());
-
-  console.log(song);
-  return song;
 }
 
 function PrintFirstLine(verse_num, animal)
@@ -44,21 +46,32 @@ function PrintLoop(verse_num, animal)
 {
   var str = "";
   for (let i = verse_num; i > 1; i-- ) {
-    str += "She swallowed the " + animal[i] +
-           " to catch the " + animal[i-1] + ".\n";
+    if (i == 3) {
+      str += "She swallowed the " + animal[i] +
+             " to catch the " + animal[i-1] +
+             " that wriggled and jiggled and tickled inside her.\n";
+    } else {
+      str += "She swallowed the " + animal[i] +
+             " to catch the " + animal[i-1] + ".\n";
+    }
     //console.log(str);
   }
   return str;
 }
 
-function PrintLastLine()
+function PrintSeventhLine()
 {
-  //console.log("I don't know why she swallowed the fly. Perhaps she'll die.");
   return "I don't know why she swallowed the fly. Perhaps she'll die.\n";
+}
+
+function PrintEighthLine()
+{
+  return "I know an old lady who swallowed a horse.\n" +
+         "She's dead, of course!\n";
 }
 
 var song = new FoodChain();
 
-song.verse(1);
+song.verse(3);
 
 module.exports = FoodChain;
