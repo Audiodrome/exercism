@@ -2,22 +2,39 @@
 
 var FoodChain = function(){
   this.verse = Verse;
+  this.verses = Verses;
 };
 
 function Verse()
 {
-  var verse_num = arguments[0];
+  var verse_num = arguments[0],
+      verse_multiplier = arguments[1];
+
+  if (verse_multiplier == undefined)
+    verse_multiplier = verse_num + 1;
+  else
+    verse_multiplier += 1;
+
+  console.log('verse_num: ' + verse_num);
+  console.log('verse_multiplier: ' + verse_multiplier);
+
+
   var animal = [ '', 'fly', 'spider', 'bird', 'cat', 'dog', 'goat', 'cow' ],
       song = "";
 
-  if (arguments[0] == 8) {
-    return PrintEighthLine();
-  } else {
-    song = song.concat(PrintFirstLine(verse_num, animal));
-    song = song.concat(PrintSecondLine(verse_num));
-    song = song.concat(PrintLoop(verse_num, animal));
-    song = song.concat(PrintSeventhLine());
+  if (verse_num == 8) {
+    song = PrintEighthLine();
     console.log(song);
+    return song;
+  } else {
+    for (var i = verse_num; i < verse_multiplier; i++) {
+      song = song.concat(PrintFirstLine(i, animal));
+      song = song.concat(PrintSecondLine(i));
+      song = song.concat(PrintLoop(i, animal));
+      song = song.concat(PrintSeventhLine());
+      console.log(song);
+
+    }
     return song;
   }
 
@@ -72,6 +89,6 @@ function PrintEighthLine()
 
 var song = new FoodChain();
 
-song.verse(3);
+song.verse(1,2);
 
 module.exports = FoodChain;
