@@ -7,15 +7,20 @@ School.prototype.add = function(name, grade){
     this.db[grade] = [];
 
   this.db[grade].push(name);
-};
+  this.db[grade].sort();
+}
 
 School.prototype.roster = function(){
-  //console.log(this.db);
   return this.db;
 }
 
+School.prototype.grade = function(grade){
+
+  return (this.db[grade] == undefined) ? [] : this.db[grade];
+}
+
 var school = new School();
-school.add('aimee', 2);
-school.roster();
+// school.add('aimee', 2);
+// school.roster();
 
 module.exports = School;

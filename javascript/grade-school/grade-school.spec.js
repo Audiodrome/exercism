@@ -32,7 +32,7 @@ describe('School', function() {
     expect(school.roster()).toEqual(expectedDb);
   });
 
-  xit('grade returns the students in that grade in alphabetical order', function() {
+  it('grade returns the students in that grade in alphabetical order', function() {
     school.add('Franklin',5);
     school.add('Bradley',5);
     school.add('Jeff',1);
@@ -40,11 +40,11 @@ describe('School', function() {
     expect(school.grade(5)).toEqual(expectedStudents);
   });
 
-  xit('grade returns an empty array if there are no students in that grade', function() {
+  it('grade returns an empty array if there are no students in that grade', function() {
     expect(school.grade(1)).toEqual([]);
   });
 
-  xit('the students names in each grade in the roster are sorted', function() {
+  it('the students names in each grade in the roster are sorted', function() {
     school.add('Jennifer', 4);
     school.add('Kareem', 6);
     school.add('Christopher', 4);
