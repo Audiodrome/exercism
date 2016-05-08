@@ -1,56 +1,44 @@
+# sieve comment
 class Sieve
-
   def initialize(num)
     @num = num
-    @mark_arr = Array.new(num + 1, "0")
+    @marks = Array.new(num + 1, 0)
     @prime_list = []
   end
 
   def primes
-    if @num == 1
-      return []
-    end
-
-    if @num == 2
-      return [2]
-    end
+    return [] if @num == 1
+    return [2] if @num == 2
 
     eratosthenes
-    buildPrimeList
-    # puts @mark_arr.inspect
-    # puts @prime_list.inspect
+    build_prime_list
+
     return @prime_list
   end
 
   def eratosthenes
     p = 2
     while p <= @num
-      markTheArray(p)
+      mark_array(p)
       p += 1
     end
   end
 
-  def markTheArray(p)
+  def mark_array(p)
     i = 2
     index = p * i
-    while index <= @num 
-      if @mark_arr[index] == "0"
-        @mark_arr[index] = "marked"
-      end
+    while index <= @num
+      @marks[index] = 1 if @marks[index] == 0
       index = p * i
       i += 1
     end
   end
 
-  def buildPrimeList
-    # prime_arr = []
+  def build_prime_list
     index = 2
     while index <= @num
-      if @mark_arr[index] == "0"
-        @prime_list << index
-      end
+      @prime_list << index if @marks[index] == 0
       index += 1
     end
   end
-
 end
