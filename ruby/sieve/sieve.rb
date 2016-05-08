@@ -19,12 +19,12 @@ class Sieve
   def eratosthenes
     p = 2
     while p <= @num
-      mark_array(p)
+      mark_composites(p)
       p += 1
     end
   end
 
-  def mark_array(p)
+  def mark_composites(p)
     i = 2
     index = p * i
     while index <= @num
