@@ -1,15 +1,46 @@
-#include <iostream>
 #include "bob.h"
-using namespace bob;
+#include <string>
+#include <iostream>
+#include <algorithm>
 
-namespace bob
+bool ChkForCaps(std::string arg);
+std::string RMWhiteSpc(std::string arg);
+
+std::string bob::hey(std::string input)
 {
-  const double pi = 3.1416;
-  double value() { return 2*pi; }
+  bool upper = false;
+  std::string arg = RMWhiteSpc(input);
+
+  std::cout << "String: " << arg << "\n";
+
+  // if (arg == "")
+  //   return "Fine. Be that way!";
+
+  upper = ChkForCaps(arg);
+
+  std::cout << "Bool: " << upper << "\n";
+
+  if (upper == 0)
+    return "Whoa, chill out!";
+
+  if (input[input.length() - 1] == '?')
+    return "Sure.";
+  
+  return "Whatever.";
 }
 
-int bob::main () {
-  cout << bob::value() << '\n';
-  cout << bob::pi << '\n';
-  return 0;
+bool ChkForCaps(std::string arg)
+{
+  for (std::string::iterator it = arg.begin(); it != arg.end(); it++) {
+    //std::cout<<*it;
+    if(islower(*it))
+      return true;
+  }
+  return false;
+}
+
+std::string RMWhiteSpc(std::string input)
+{
+  input.erase(remove_if(input.begin(), input.end(), isspace),input.end());
+  return input;
 }
