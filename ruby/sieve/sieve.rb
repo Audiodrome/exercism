@@ -16,6 +16,8 @@ class Sieve
     return @prime_list
   end
 
+  private
+
   def eratosthenes
     p = 2
     while p <= @num
