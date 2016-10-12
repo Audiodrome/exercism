@@ -1,13 +1,12 @@
-#include "bob.h"
 #define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include "bob.h"
 
 BOOST_AUTO_TEST_CASE(stating_something)
 {
     BOOST_REQUIRE_EQUAL("Whatever.", bob::hey("Tom-ay-to, tom-aaaah-to."));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(shouting)
 {
     BOOST_REQUIRE_EQUAL("Whoa, chill out!", bob::hey("WATCH OUT!"));
@@ -83,8 +82,9 @@ BOOST_AUTO_TEST_CASE(prolonged_silence)
     BOOST_REQUIRE_EQUAL("Fine. Be that way!", bob::hey("   "));
 }
 
-BOOST_AUTO_TEST_CASE(not_all_silence)                                                                         
-{                                                                                                             
-	BOOST_REQUIRE_EQUAL("Whatever.", bob::hey(" A bit of silence can be nice.  "));                           
+BOOST_AUTO_TEST_CASE(not_all_silence)
+{
+	BOOST_REQUIRE_EQUAL("Whatever.", bob::hey(" A bit of silence can be nice.  "));
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 #endif

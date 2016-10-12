@@ -4,39 +4,47 @@
 #include <algorithm>
 
 bool ChkForCaps(std::string arg);
+bool ChkForAlphas(std::string arg);
 std::string RMWhiteSpc(std::string arg);
 
 std::string bob::hey(std::string input)
 {
-  bool upper = false;
+  bool is_alpha = false,
+       is_upper = false;
+
   std::string arg = RMWhiteSpc(input);
 
-  std::cout << "String: " << arg << "\n";
+  if (arg == "")
+    return "Fine. Be that way!";
 
-  // if (arg == "")
-  //   return "Fine. Be that way!";
+  is_upper = ChkForCaps(arg);
+  is_alpha = ChkForAlphas(arg);
 
-  upper = ChkForCaps(arg);
-
-  std::cout << "Bool: " << upper << "\n";
-
-  if (upper == 0)
+  if (is_upper == true && is_alpha == true)
     return "Whoa, chill out!";
 
-  if (input[input.length() - 1] == '?')
+  if (arg[arg.length() - 1] == '?')
     return "Sure.";
-  
+
   return "Whatever.";
+}
+
+bool ChkForAlphas(std::string arg)
+{
+  for (std::string::iterator it = arg.begin(); it != arg.end(); it++) {
+    if(isalpha(*it))
+      return true;
+  }
+  return false;
 }
 
 bool ChkForCaps(std::string arg)
 {
   for (std::string::iterator it = arg.begin(); it != arg.end(); it++) {
-    //std::cout<<*it;
     if(islower(*it))
-      return true;
+      return false;
   }
-  return false;
+  return true;
 }
 
 std::string RMWhiteSpc(std::string input)

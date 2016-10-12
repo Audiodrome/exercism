@@ -8,16 +8,15 @@ Bob.prototype.hey = function(input) {
     }
     if (/[a-zA-Z]/.test(input) && input == input.toUpperCase()) {
         console.log(input);
+		    console.log(/[a-zA-Z]/.test(input));
         return 'Whoa, chill out!';
     }
     if (input.endsWith('?')) {
-        console.log(input);
+        //console.log(input);
         return 'Sure.';
     }
-    else {
-        console.log(input);
-        return 'Whatever.';
-    }
+    return 'Whatever.';
+
 };
 
 var bob = new Bob();
