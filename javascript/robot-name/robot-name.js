@@ -1,57 +1,37 @@
+"use strict";
+
 var rand = require('random-seed').create();
-var used_names = {};
 
-var Robot = function(){
-    //var used_names = {},
-    var tmp = GenRoboName();
+var Robot = function() {
 
-    // if (used_names[tmp] === undefined) {
-    //     used_names[tmp] = true;
-    //     this.name = tmp;
-    // } else {
-    //     while (used_names[tmp] === true) 
-    //         tmp = GenRoboName();
-    // }
-
-    
-    this.name = tmp;
-    //console.log(used_names);
+    var this_robot = this;
+    this.name = GenRoboName(this_robot);
+    this.reset = function() {
+        this.name = GenRoboName(this_robot);
+    };
 };
 
-// function CheckRoboName() {
-//     var used_names = {},
-//         tmp = GenRoboName();
-
-//     if (used_names[tmp] == undefined) {
-//         used_names[tmp] = true;
-//         return tmp;
-//     }
-//     else {
-//         console.log("hello world");
-//         CheckRoboName();
-//     }
-// }
-
-function GenRoboName() {
+function GenRoboName(Robot) {
 
     var alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     var digits = "0123456789".split("");
     var name = "";
 
     for (var i = 0; i < 2; i++) {
-        //console.log(alphabets[i]);
         name = name.concat(alphabets[rand(26)]);
     }
 
     for (i = 0; i < 3; i++) {
         name = name.concat(digits[rand(10)]);
     }
-    //console.log(name);
+
+    while (Robot.used_names[name] === true)
+        return GenRoboName(Robot);
+
+    Robot.used_names[name] = true;
     return name;
 }
 
-var robot = new Robot();
+Robot.prototype.used_names = {};
 
 module.exports = Robot;
-
-
