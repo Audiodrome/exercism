@@ -27,11 +27,10 @@ function GenRoboName(Robot) {
 
     while (Robot.used_names[name] === true)
         return GenRoboName(Robot);
-
     Robot.used_names[name] = true;
     return name;
 }
 
 Robot.prototype.used_names = {};
-
+console.error("boo");
 module.exports = Robot;
