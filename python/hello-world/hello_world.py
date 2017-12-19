@@ -1,3 +1,7 @@
+def hello(name=''):
+    pass
+
+hello('aksdfj');
 # class hello_world:
 #     def hello():
 #         print('Hello, World!');
