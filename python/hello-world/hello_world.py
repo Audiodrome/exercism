@@ -1,12 +1,14 @@
-def hello(name=''):
-    pass
+def hello():
+    return("Hello, World!");
 
-hello('aksdfj');
-# class hello_world:
-#     def hello():
-#         print('Hello, World!');
+# I'm a moron.
 
-# hello_world.hello();
+# class Hello:
+#     def hello(self):
+#         return("Hello, World!")
+
+# hello_world = Hello()
+# print(hello_world.hello())
 
 # class Hello:
 #     def hello(self):
