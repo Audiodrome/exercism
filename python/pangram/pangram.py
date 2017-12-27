@@ -1,7 +1,5 @@
 def is_pangram(sentence):
-    sentence = sentence.replace(" ", "")
-    sentence = sentence.lower()
-    print(sentence)
+    sentence = sentence.replace(" ", "").lower()
     
     dict = {}
 
