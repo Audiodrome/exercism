@@ -1,7 +1,4 @@
 *.txt
-*spec.js
-*test.cpp
-*_test.py
 __pycache__
 cpp/**/build
 **/node_modules
