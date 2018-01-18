@@ -4,4 +4,4 @@
 *_test.py
 __pycache__
 cpp/**/build
-javascript/**/node_modules
+**/node_modules
