@@ -1,4 +1,3 @@
-*.txt
 __pycache__
 cpp/**/build
 **/node_modules
