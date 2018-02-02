@@ -5,7 +5,7 @@
 
 int hamming::compute(std::string a, std::string b) {
     if (a.length() != b.length()) {
-        // error message
+        throw std::domain_error("Unequal length dna strings.");
     }
     
     int hamming_distance = 0;
