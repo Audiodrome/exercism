@@ -8,13 +8,33 @@ class BowlingGame(object):
         self.rolls.append(pins)
 
     def score(self):
-        return 0
+        score = 0
+        frameIndex = 0
 
+        def sumOfBallsInFrame():
+            return self.rolls[frameIndex] + self.rolls[frameIndex + 1]
         
-b = BowlingGame()
-b.roll(4)
-b.print_rolls()
-b.roll(5)
-b.print_rolls()
-b.roll(6)
-b.print_rolls()
+        def spareBonus():
+            return self.rolls[frameIndex + 2]
+        
+        def strikeBonus():
+            return self.rolls[frameIndex + 1] + self.rolls[frameIndex + 2]
+
+        def isStrike():
+            return self.rolls[frameIndex] == 10
+
+        def isSpare():
+            return self.rolls[frameIndex] + self.rolls[frameIndex + 1] == 10
+
+        for frame in range(10):
+            if isStrike():
+                score += 10 + strikeBonus()
+                frameIndex += 1
+            elif isSpare():
+                score += 10 + spareBonus()
+                frameIndex += 2
+            else:
+                score += sumOfBallsInFrame()
+                frameIndex += 2
+        
+        return score
