@@ -1,5 +1,3 @@
-# Globals for the bearings
-# Change the values as you see fit
 EAST = 0
 NORTH = 1
 WEST = 2
@@ -20,24 +18,14 @@ class Robot(object):
         return self._bearing
 
     def turn_right(self):
-        if (self._bearing == NORTH):
-            self._bearing = EAST
-        elif (self._bearing == EAST):
+        self._bearing -= 1
+        if self._bearing < EAST:
             self._bearing = SOUTH
-        elif (self._bearing == SOUTH):
-            self._bearing = WEST
-        elif (self._bearing == WEST):
-            self._bearing = NORTH
 
     def turn_left(self):
-        if (self._bearing == NORTH):
-            self._bearing = WEST
-        elif (self._bearing == EAST):
-            self._bearing = NORTH
-        elif (self._bearing == SOUTH):
+        self._bearing += 1
+        if self._bearing > SOUTH:
             self._bearing = EAST
-        elif (self._bearing == WEST):
-            self._bearing = SOUTH
 
     def advance(self):
         if (self._bearing == NORTH):
@@ -50,7 +38,6 @@ class Robot(object):
             self._x -= 1
 
     def simulate(self, directions):
-        print("length: ", len(directions))
 
         for char in directions:
             if (char == 'L'):
