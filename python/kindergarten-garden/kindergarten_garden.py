@@ -1,6 +1,5 @@
 class Garden(object):
     def __init__(self, diagram, students = None):
-        # self._students_plants = None
         self._plant_codes = {
             'G': 'Grass',
             'C': 'Clover',
@@ -24,10 +23,10 @@ class Garden(object):
             ]
         else:
             self._students = students
+            self._students.sort()
 
         self._diagram = diagram
         self._student_plants = self.preprocess_diagram()
-        # print('student plants: ', self._student_plants)
 
     def preprocess_diagram(self):
         diagram = self._diagram.split('\n')
@@ -37,11 +36,10 @@ class Garden(object):
         diagram[0] = list(diagram[0])
         diagram[1] = list(diagram[1])
 
-        # print(diagram)
-
+        # diagram pointer moves by two, student pointer moves by 1
+        j = 0
         for i in range(0, len(diagram[0]), 2):
-            student_name = self._students[i]
-            # print('student: ', student_name)
+            student_name = self._students[j]
 
             temp_plants = []
             temp_plants.append(self._plant_codes[diagram[0][i]])
@@ -50,18 +48,9 @@ class Garden(object):
             temp_plants.append(self._plant_codes[diagram[1][i+1]])
 
             result[student_name] = temp_plants
-
-        # print(result)
+            j = j + 1
 
         return result
 
     def plants(self, student_name):
-        print(self._student_plants[student_name])
         return self._student_plants[student_name]  
-
-    def print_student_list(self):
-        print(self._students)
-
-garden = Garden("RC\nGG")
-garden.plants("Alice")
-# garden.print_student_list()
